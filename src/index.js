@@ -3,11 +3,14 @@ import { navbar } from './js/navbar';
 import { header } from './js/header';
 import { menu } from './js/menu';
 import { Menu } from './js/menu';
+import { sectionTestimonial } from './js/testimonial';
+import { Testimonial } from './js/testimonial';
 
 const content = document.querySelector('#content');
 content.appendChild(navbar);
 content.appendChild(header);
 content.appendChild(menu);
+content.appendChild(sectionTestimonial);
 
 const headerTime = (() => {
     let countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
@@ -36,7 +39,24 @@ const menuDisplay = (() => {
 window.addEventListener('DOMContentLoaded', () => {
 displayMenuItems(Menu);
 displayBtn();
+displayTestimonial(Testimonial);
 });
+
+const displayTestimonial = (testimonialItems) => {
+    const testimonial = document.querySelector('#test');
+    let displayTest = testimonialItems.map((item) => {
+      return ` 
+      <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+      <img class="img-fluid rounded-circle mb-3" src=${item.image} alt="image">
+      <h5>${item.name}</h5>
+      <p class="font-weight-light mb-0">${item.text}</p>
+      </div>
+      </div>
+      `
+     }).join("");
+     testimonial.innerHTML = displayTest;
+  }
 const displayMenuItems = (menuItems) => {
   let displayMenu = menuItems.map((item) => {
     return `  <div class="menu-items">
@@ -80,4 +100,5 @@ else {
 })
 }
 })();
+
  
