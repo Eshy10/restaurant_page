@@ -6,6 +6,7 @@ import { Menu } from './js/menu';
 import { sectionTestimonial } from './js/testimonial';
 import { Testimonial } from './js/testimonial';
 import { callAction } from './js/call';
+import { footer } from './js/footer';
 
 const content = document.querySelector('#content');
 content.appendChild(navbar);
@@ -13,6 +14,7 @@ content.appendChild(header);
 content.appendChild(menu);
 content.appendChild(sectionTestimonial);
 content.appendChild(callAction);
+content.appendChild(footer);
 
 const headerTime = (() => {
     let countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
