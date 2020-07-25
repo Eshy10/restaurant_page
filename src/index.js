@@ -1,10 +1,13 @@
 import "./styles/style.scss";
 import { navbar } from './js/navbar';
 import { header } from './js/header';
+import { menu } from './js/menu';
+import { Menu } from './js/menu';
 
 const content = document.querySelector('#content');
 content.appendChild(navbar);
 content.appendChild(header);
+content.appendChild(menu);
 
 const headerTime = (() => {
     let countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
@@ -27,4 +30,54 @@ const headerTime = (() => {
     }, 1000);
     })();
 
+const menuDisplay = (() => {
+  const allMenu = document.querySelector('.menu-obj');
+  const menuCategoryBtn = document.querySelector('.menu-btn')
+window.addEventListener('DOMContentLoaded', () => {
+displayMenuItems(Menu);
+displayBtn();
+});
+const displayMenuItems = (menuItems) => {
+  let displayMenu = menuItems.map((item) => {
+    return `  <div class="menu-items">
+      <img class="img-responsive" src= ${item.img}>
+      <div>
+      <h6 class="font-weight-bold">${item.title}<span>$${item.price}</span></h6>
+      <p class="text-secondary">${item.desc}</p>
+      </div>
+     </div>`
+}).join("");
+allMenu.innerHTML = displayMenu;
+} 
+  const displayBtn = () => {
+  const categories = Menu.reduce((values, item) => {
+ if (!values.includes(item.category)){
+   values.push(item.category)
+  }
+  return values;
+ },['All']);
+  const categoryBtn = categories.map((category) => {
+    return `<button class="menu-btns btn btn-outline-danger" data-id=${category}>${category}</button>`
+}).join("")
+menuCategoryBtn.innerHTML = categoryBtn;
+const filterBtns = document.querySelectorAll('.menu-btns');
+         //filter Menu
+filterBtns.forEach((btn) => {
+btn.addEventListener('click', (event) => {
+const category = event.currentTarget.dataset.id;
+const menuCategory = Menu.filter((menuItem) => {
+if (menuItem.category === category) {
+    return menuItem;
+}
+});
+if (category === 'All') {
+ displayMenuItems(Menu);
+} 
+else {
+ displayMenuItems(menuCategory);
+}
+});
+})
+}
+})();
  
