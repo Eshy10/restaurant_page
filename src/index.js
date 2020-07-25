@@ -1,3 +1,5 @@
 import "./styles/style.scss";
-console.log("Hello welcome girl!")
+import { navbar } from './js/navbar';
 
+const content = document.querySelector('#content');
+content.appendChild(navbar);
