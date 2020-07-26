@@ -156,6 +156,14 @@ header {
     margin-right: 1em;
   }
 
+  .display {
+    display: none;
+  }
+
+.menu-height {
+  margin-top: 25px;
+}
+
   
   @media (pointer: coarse) and (hover: none) {
     header {

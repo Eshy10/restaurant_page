@@ -44,6 +44,8 @@ window.addEventListener('DOMContentLoaded', () => {
 displayMenuItems(Menu);
 displayBtn();
 displayTestimonial(Testimonial);
+const element = document.getElementById('nav-tab');
+element.addEventListener('click', onTabClick, false);
 });
 
 const displayTestimonial = (testimonialItems) => {
@@ -102,6 +104,39 @@ else {
 }
 });
 })
+}
+
+const onTabClick = (event) => {
+  let activeTabs = document.querySelectorAll('.active');
+
+  // deactivate existing active tab and panel 
+  activeTabs.forEach(function(tab) {
+    tab.className = tab.className.replace('active', '');
+
+  });
+const menuTitle = document.querySelector('#Menu-head');
+  const link = event.target.parentElement.children[0];
+  if (link.getAttribute('href') === '#Menu') {
+    header.classList.add('display')
+    sectionTestimonial.classList.add('display')
+    menuTitle.classList.add('menu-height');
+    menu.style.display = 'block'
+    callAction.style.display = 'none'
+  } 
+  else if(link.getAttribute('href') === '#Contact') {
+    callAction.classList.remove('display')
+    header.classList.add('display')
+    sectionTestimonial.classList.add('display')
+    callAction.style.display = 'block'
+    menu.style.display = 'none'
+  }else {
+    header.classList.remove('display')
+    sectionTestimonial.classList.remove('display')
+    callAction.classList.remove('display')
+    menuTitle.classList.remove('menu-height');
+    menu.classList.remove('display')
+  }
+  event.target.parentElement.className += ' active';
 }
 })();
 

@@ -64,6 +64,7 @@ export const Menu = [
 export const menu = (()=> {
 const menuSection = document.createElement('section');
 menuSection.setAttribute('class', 'my-5');
+menuSection.setAttribute('id', 'menu-items');
 const menuCtn = document.createElement('div');
 menuCtn.setAttribute('class', 'container');
 const rowMenu = document.createElement('div');
@@ -72,6 +73,7 @@ const colMenu = document.createElement('div');
 colMenu.setAttribute('class', 'col-md-12 mx-auto');
 const menuTitle = document.createElement('h3');
 menuTitle.setAttribute('class', 'text-center menu');
+menuTitle.setAttribute('id', 'Menu-head');
 menuTitle.textContent = 'Menu';
 const menuBtn = document.createElement('div');
 menuBtn.setAttribute('class', 'menu-btn mt-2');

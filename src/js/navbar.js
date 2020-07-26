@@ -23,6 +23,7 @@ export const navbar = (()=> {
     navCollapse.setAttribute('id', 'navbarResponsive');
     const navList = document.createElement('ul');
     navList.setAttribute('class', 'navbar-nav ml-auto');
+    navList.setAttribute('id', 'nav-tab');
     navList.innerHTML = `
     <li class="nav-item active">
     <a class="nav-link" href="#">Home
@@ -30,13 +31,10 @@ export const navbar = (()=> {
         </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">About</a>
+    <a class="nav-link" href="#Menu">Menu</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Menu</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Contact</a>
+    <a class="nav-link" href="#Contact">Contact</a>
   </li>
     `
 containerDiv.appendChild(navBrand);

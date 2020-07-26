@@ -25,6 +25,7 @@ export const Testimonial = [
 export const sectionTestimonial = (() => {
  const secTestimonial = document.createElement('section');
  secTestimonial.setAttribute('class', 'testimonials text-center bg-light');
+ secTestimonial.setAttribute('id', 'people');
  const secContainer = document.createElement('div');
  secContainer.setAttribute('class', 'container');
  const testimonialTitle = document.createElement('h2');

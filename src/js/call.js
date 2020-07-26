@@ -1,6 +1,7 @@
 export const callAction = (() => {
 const sectionCall = document.createElement('section');
 sectionCall.setAttribute('class', 'call-to-action text-white text-center');
+sectionCall.setAttribute('id', 'contact');
 const callOverlay = document.createElement('div')
 callOverlay.setAttribute('class', 'overlay');
 const callContainer = document.createElement('div');
@@ -11,7 +12,7 @@ const colText = document.createElement('div');
 colText.setAttribute('class', 'col-xl-9 mx-auto');
 const callText = document.createElement('h2');
 callText.setAttribute('class', 'mb-4');
-callText.textContent = 'Ready to get started? Sign up now!';
+callText.textContent = 'Contact';
 const colForm = document.createElement('div');
 colForm.setAttribute('class', 'col-md-10 col-lg-8 col-xl-7 mx-auto');
 const form = document.createElement('form');
@@ -28,13 +29,17 @@ colButton.setAttribute('class', 'col-12 col-md-3');
 const button = document.createElement('button');
 button.setAttribute('type', 'submit');
 button.setAttribute('class', 'btn btn-block btn-lg btn-danger');
-button.textContent = 'Sign up!';
+button.textContent = 'Get Started';
+const mobile = document.createElement('h4');
+mobile.setAttribute('class', 'font-weight-bold mt-2');
+mobile.innerHTML = `<i class="fas fa-mobile-alt"></i>Enquiries: 09033322xxxxxx`
 colButton.appendChild(button);
 formCol.appendChild(input);
 formRow.appendChild(formCol);
 formRow.appendChild(colButton);
 form.appendChild(formRow);
 colForm.appendChild(form);
+colForm.appendChild(mobile);
 colText.appendChild(callText);
 callRow.appendChild(colText);
 callRow.appendChild(colForm);
