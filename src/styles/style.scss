@@ -1,175 +1,176 @@
 @import "~bootstrap/scss/bootstrap";
-$fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    position: relative;
-    background-color: black;
-    height: 75vh;
-    min-height: 25rem;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  header video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: 0;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  header .container {
-    position: relative;
-    z-index: 2;
-  }
-  
-  header .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    opacity: 0.5;
-    z-index: 1;
-  }
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
 
-  
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
 .testimonials {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-  }
-  
-  .testimonials .testimonial-item {
-    max-width: 18rem;
-  }
-  
-  .testimonials .testimonial-item img {
-    max-width: 12rem;
-    box-shadow: 0px 5px 5px 0px #adb5bd;
-  }
-  
-  .call-to-action {
-    position: relative;
-    background-color: #343a40;
-    background: url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60") no-repeat center center;
-    background-size: cover;
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-  }
-  
-  .call-to-action .overlay {
-    position: absolute;
-    background-color: #212529;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.5;
-  }
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
 
-  footer.footer {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
+.testimonials .testimonial-item {
+  max-width: 18rem;
+}
 
-  footer li a, .menu, .test {
-  color: #C82333;
-  }
-  .menu {
-    text-decoration: underline;
-  }
+.menu-items img {
+  width: 100%;
+}
 
-  .countdown {
+.testimonials .testimonial-item img {
+  max-width: 12rem;
+  box-shadow: 0 5px 5px 0 #adb5bd;
+}
 
-    position: relative;
-    top: 10px;
-  }
+.call-to-action {
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60") no-repeat center center;
+  background-size: cover;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
 
-  .countdown ul {
-    margin-left: -45px;
-  }
-  
-  .countdown li {
-    display: inline-block;
-    font-size: 30px;
-    color: #C82333;
-    list-style-type: none;
-    padding: 10px;
-    text-transform: uppercase;
-  }
-  
-  .countdown li span {
-    display: block;
-    font-size: 80px;
-    text-align: center;
-  }
+.call-to-action .overlay {
+  position: absolute;
+  background-color: #212529;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}
 
-  .menu-obj {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-    width: 100%;
-  }
+footer.footer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
 
-  .menu-items {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 5px;
-  }
+footer li a,
+.menu,
+.test {
+  color: #c82333;
+}
 
-  .menu-items img {
-    width: 100%;
-  }
+.menu {
+  text-decoration: underline;
+}
 
-  .menu-items span {
-    color: #C82333;
-    margin-left: 1em;
-  }
+.countdown {
+  position: relative;
+  top: 10px;
+}
 
-  .menu-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.countdown ul {
+  margin-left: -45px;
+}
 
-  .menu-btn button {
-    margin-right: 1em;
-  }
+.countdown li {
+  display: inline-block;
+  font-size: 30px;
+  color: #c82333;
+  list-style-type: none;
+  padding: 10px;
+  text-transform: uppercase;
+}
 
-  .display {
-    display: none;
-  }
+.menu-items span {
+  color: #c82333;
+  margin-left: 1em;
+}
+
+.countdown li span {
+  display: block;
+  font-size: 80px;
+  text-align: center;
+}
+
+.menu-obj {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  width: 100%;
+}
+
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+}
+
+.menu-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-btn button {
+  margin-right: 1em;
+}
+
+.display {
+  display: none;
+}
 
 .menu-height {
   margin-top: 25px;
 }
 
-  
-  @media (pointer: coarse) and (hover: none) {
-    header {
-      background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
-    }
-    /* header video {
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+
+  /* header video {
       display: none;
     } */
-  }
+}
