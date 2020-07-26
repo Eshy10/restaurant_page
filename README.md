@@ -20,7 +20,7 @@
 
 ## Usage
 
- - open index.html
+ - run npm start
 
 ## Author
 
