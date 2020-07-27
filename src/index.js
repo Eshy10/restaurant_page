@@ -13,9 +13,8 @@ content.appendChild(menu);
 content.appendChild(sectionTestimonial);
 content.appendChild(callAction);
 content.appendChild(footer);
-/* eslint-disable */
-const headerTime = (() => {
-      /* eslint-enable */
+
+const headerTime = () => {
   const countDownDate = new Date('Jan 5, 2021 15:37:25').getTime();
   const x = setInterval(() => {
     const now = new Date().getTime();
@@ -34,16 +33,14 @@ const headerTime = (() => {
       document.getElementById('countdown-title').innerHTML = 'EXPIRED';
     }
   }, 1000);
-})();
-/* eslint-disable */
-const menuDisplay = (() => {
-      /* eslint-enable */
-  const allMenu = document.querySelector('.menu-obj');
-  const menuCategoryBtn = document.querySelector('.menu-btn');
+};
 
-  const displayTestimonial = (testimonialItems) => {
-    const testimonial = document.querySelector('#test');
-    const displayTest = testimonialItems.map((item) => ` 
+const allMenu = document.querySelector('.menu-obj');
+const menuCategoryBtn = document.querySelector('.menu-btn');
+
+const displayTestimonial = (testimonialItems) => {
+  const testimonial = document.querySelector('#test');
+  const displayTest = testimonialItems.map((item) => ` 
       <div class="col-lg-4">
             <div class="testimonial-item mx-auto mb-5 mb-lg-0">
       <img class="img-fluid rounded-circle mb-3" src=${item.image} alt="image">
@@ -52,86 +49,92 @@ const menuDisplay = (() => {
       </div>
       </div>
       `).join('');
-    testimonial.innerHTML = displayTest;
-  };
-  const displayMenuItems = (menuItems) => {
-    const displayMenu = menuItems.map((item) => `  <div class="menu-items">
+  testimonial.innerHTML = displayTest;
+};
+
+const displayMenuItems = (menuItems) => {
+  const displayMenu = menuItems.map((item) => `  <div class="menu-items">
       <img class="img-responsive" src= ${item.img}>
       <div>
       <h6 class="font-weight-bold">${item.title}<span>$${item.price}</span></h6>
       <p class="text-secondary">${item.desc}</p>
       </div>
      </div>`).join('');
-    allMenu.innerHTML = displayMenu;
-  };
-  const displayBtn = () => {
-    const categories = Menu.reduce((values, item) => {
-      if (!values.includes(item.category)) {
-        values.push(item.category);
-      }
-      return values;
-    }, ['All']);
-    const categoryBtn = categories.map((category) => `<button class="menu-btns btn btn-outline-danger" data-id=${category}>${category}</button>`).join('');
-    menuCategoryBtn.innerHTML = categoryBtn;
-    const filterBtns = document.querySelectorAll('.menu-btns');
-    // filter Menu
-    filterBtns.forEach((btn) => {
-      btn.addEventListener('click', (event) => {
-        const category = event.currentTarget.dataset.id;
-        /* eslint-disable */
-        const menuCategory = Menu.filter((menuItem) => {
-              /* eslint-enable */
-          if (menuItem.category === category) {
-            return menuItem;
-          }
-        });
-        if (category === 'All') {
-          displayMenuItems(Menu);
-        } else {
-          displayMenuItems(menuCategory);
-        }
-      });
-    });
-  };
+  allMenu.innerHTML = displayMenu;
+};
 
-  const onTabClick = (event) => {
-    const activeTabs = document.querySelectorAll('.active');
-
-    // deactivate existing active tab and panel
-    activeTabs.forEach((tab) => {
-      tab.className = tab.className.replace('active', '');
-    });
-    const menuTitle = document.querySelector('#Menu-head');
-    const link = event.target.parentElement.children[0];
-    if (link.getAttribute('href') === '#Menu') {
-      header.classList.add('display');
-      sectionTestimonial.classList.add('display');
-      menuTitle.classList.add('menu-height');
-      menu.style.display = 'block';
-      callAction.style.display = 'none';
-    } else if (link.getAttribute('href') === '#Contact') {
-      callAction.classList.remove('display');
-      header.classList.add('display');
-      sectionTestimonial.classList.add('display');
-      callAction.style.display = 'block';
-      menu.style.display = 'none';
-    } else {
-      header.classList.remove('display');
-      sectionTestimonial.classList.remove('display');
-      callAction.classList.remove('display');
-      menuTitle.classList.remove('menu-height');
-      menu.classList.remove('display');
-      callAction.style.display = 'block';
-      menu.style.display = 'block';
+const displayBtn = () => {
+  const categories = Menu.reduce((values, item) => {
+    if (!values.includes(item.category)) {
+      values.push(item.category);
     }
-    event.target.parentElement.className += ' active';
-  };
+    return values;
+  }, ['All']);
+  const categoryBtn = categories.map((category) => `<button class="menu-btns btn btn-outline-danger" data-id=${category}>${category}</button>`).join('');
+  menuCategoryBtn.innerHTML = categoryBtn;
+  const filterBtns = document.querySelectorAll('.menu-btns');
 
-  window.addEventListener('DOMContentLoaded', () => {
-    displayMenuItems(Menu);
-    displayBtn();
-    displayTestimonial(Testimonial);
-    const element = document.getElementById('nav-tab');
-    element.addEventListener('click', onTabClick, false);
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      const category = event.currentTarget.dataset.id;
+      const menuCategory = Menu.filter((menuItem) => {
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+        return false;
+      });
+      if (category === 'All') {
+        displayMenuItems(Menu);
+      } else {
+        displayMenuItems(menuCategory);
+      }
+    });
   });
-})();
+};
+
+
+const onTabClick = (event) => {
+  const activeTabs = document.querySelectorAll('.active');
+
+
+  activeTabs.forEach((tab) => {
+    tab.className = tab.className.replace('active', '');
+  });
+  const menuTitle = document.querySelector('#Menu-head');
+  const link = event.target.parentElement.children[0];
+  if (link.getAttribute('href') === '#Menu') {
+    header.classList.add('display');
+    sectionTestimonial.classList.add('display');
+    menuTitle.classList.add('menu-height');
+    menu.style.display = 'block';
+    callAction.style.display = 'none';
+  } else if (link.getAttribute('href') === '#Contact') {
+    callAction.classList.remove('display');
+    header.classList.add('display');
+    sectionTestimonial.classList.add('display');
+    callAction.style.display = 'block';
+    menu.style.display = 'none';
+  } else {
+    header.classList.remove('display');
+    sectionTestimonial.classList.remove('display');
+    callAction.classList.remove('display');
+    menuTitle.classList.remove('menu-height');
+    menu.classList.remove('display');
+    callAction.style.display = 'block';
+    menu.style.display = 'block';
+  }
+  event.target.parentElement.className += ' active';
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+  displayMenuItems(Menu);
+  displayBtn();
+  displayTestimonial(Testimonial);
+  const element = document.getElementById('nav-tab');
+  element.addEventListener('click', onTabClick, false);
+});
+
+headerTime();
+displayTestimonial(Testimonial);
+displayMenuItems(Menu);
+displayBtn();
